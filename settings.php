@@ -165,3 +165,54 @@ $settings->add(new admin_setting_configtext(
     PARAM_FLOAT,
     10
 ));
+
+// Canvas LTI Assignment and Grade Services (AGS) settings.
+$settings->add(new admin_setting_heading(
+    'codeRunnerCanvasLtiSettings',
+    get_string('canvaslti_settings_heading', 'qtype_coderunner'),
+    get_string('canvaslti_settings_heading_desc', 'qtype_coderunner')
+));
+
+$settings->add(new admin_setting_configcheckbox(
+    'qtype_coderunner/canvaslti_enabled',
+    get_string('canvaslti_enabled', 'qtype_coderunner'),
+    get_string('canvaslti_enabled_desc', 'qtype_coderunner'),
+    false
+));
+
+$settings->add(new admin_setting_configtext(
+    'qtype_coderunner/canvaslti_platform_url',
+    get_string('canvaslti_platform_url', 'qtype_coderunner'),
+    get_string('canvaslti_platform_url_desc', 'qtype_coderunner'),
+    '',
+    PARAM_URL,
+    60
+));
+
+$settings->add(new admin_setting_configtext(
+    'qtype_coderunner/canvaslti_token_endpoint',
+    get_string('canvaslti_token_endpoint', 'qtype_coderunner'),
+    get_string('canvaslti_token_endpoint_desc', 'qtype_coderunner'),
+    '',
+    PARAM_URL,
+    60
+));
+
+$settings->add(new admin_setting_configtext(
+    'qtype_coderunner/canvaslti_client_id',
+    get_string('canvaslti_client_id', 'qtype_coderunner'),
+    get_string('canvaslti_client_id_desc', 'qtype_coderunner'),
+    '',
+    PARAM_RAW,
+    40
+));
+
+$settings->add(new admin_setting_configtextarea(
+    'qtype_coderunner/canvaslti_private_key',
+    get_string('canvaslti_private_key', 'qtype_coderunner'),
+    get_string('canvaslti_private_key_desc', 'qtype_coderunner'),
+    '',
+    PARAM_RAW,
+    10,
+    60
+));

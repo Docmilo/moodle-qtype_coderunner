@@ -83,5 +83,26 @@
         <KEY NAME="questionid" TYPE="foreign" FIELDS="questionid" REFTABLE="question" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
+    <TABLE NAME="qtype_coderunner_lti_context" COMMENT="Stores LTI 1.3 context information for Canvas grade passback via LTI AGS">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="cmid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Moodle course module ID of the quiz launched from Canvas"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Moodle user ID"/>
+        <FIELD NAME="ltiuserid" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="LTI 1.3 user ID (sub claim) from the Canvas launch token"/>
+        <FIELD NAME="lineitemurl" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Canvas LTI AGS line item URL for grade passback"/>
+        <FIELD NAME="resourcelinkid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="LTI resource link ID from the launch claim"/>
+        <FIELD NAME="deploymentid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="LTI deployment ID from the launch claim"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="cmid_userid" TYPE="unique" FIELDS="cmid, userid"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="cmid" UNIQUE="false" FIELDS="cmid"/>
+        <INDEX NAME="userid" UNIQUE="false" FIELDS="userid"/>
+      </INDEXES>
+    </TABLE>
   </TABLES>
 </XMLDB>

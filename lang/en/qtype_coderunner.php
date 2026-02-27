@@ -1399,3 +1399,20 @@ $string['bulktestusecachelabel'] = 'Use grading cache: ';
 $string['bulktestusecacheexplanation'] = 'Whether or not to use the Coderunner grading cache. Turning it off means that questions will always be run on the
 jobe server. When doing multiple runs, this setting will help show issues with individual jobe servers when you are using a list of servers or a jobe proxy that is load sharing to multiple jobes. Deafult: true';
 $string['bulktestallcachenotclearedmessage'] = '<b>Note:</b> Grading cache not cleared -- do it from admin-plugins-cache if you really want to clear the cache for all courses!';
+
+// Canvas LTI AGS integration strings.
+$string['canvaslti_settings_heading'] = 'Canvas LTI Assignment and Grade Services (AGS)';
+$string['canvaslti_settings_heading_desc'] = 'Settings for integrating CodeRunner with Canvas via the LTI 1.3 Assignment and Grade Services specification. When enabled, quiz grades are automatically sent back to Canvas when a student submits a quiz attempt that was launched from Canvas via LTI. See <a href="https://www.imsglobal.org/spec/lti-ags/v2p0/" target="_blank">LTI AGS v2.0 specification</a>.';
+$string['canvaslti_enabled'] = 'Enable Canvas LTI grade passback';
+$string['canvaslti_enabled_desc'] = 'When checked, CodeRunner will send quiz attempt grades back to Canvas via the LTI Assignment and Grade Services API whenever a stored LTI context is found for the quiz. Requires a valid platform URL, token endpoint, client ID, and private key to be configured below.';
+$string['canvaslti_platform_url'] = 'Canvas platform URL';
+$string['canvaslti_platform_url_desc'] = 'The base URL of your Canvas instance, e.g. https://canvas.instructure.com or https://yourschool.instructure.com. This is also the LTI 1.3 issuer identifier.';
+$string['canvaslti_token_endpoint'] = 'Canvas OAuth 2.0 token endpoint';
+$string['canvaslti_token_endpoint_desc'] = 'The OAuth 2.0 token endpoint URL used to obtain access tokens for LTI AGS calls. For Canvas this is typically https://&lt;canvas-host&gt;/login/oauth2/token.';
+$string['canvaslti_client_id'] = 'LTI client ID';
+$string['canvaslti_client_id_desc'] = 'The client ID assigned by Canvas when you registered the LTI developer key. Found in Canvas under Admin > Developer Keys.';
+$string['canvaslti_private_key'] = 'LTI private key (PEM)';
+$string['canvaslti_private_key_desc'] = 'The RSA private key (PEM format, beginning with -----BEGIN RSA PRIVATE KEY-----) corresponding to the public key registered with the Canvas LTI developer key. This key is used to sign JWT assertions for the OAuth 2.0 client credentials flow. Keep this value confidential.';
+$string['lti_grade_comment'] = 'Graded by CodeRunner';
+$string['lti_invalid_private_key'] = 'Invalid LTI private key. Please check the Canvas LTI private key setting.';
+$string['lti_signing_failed'] = 'Failed to sign the LTI JWT assertion. Please check the Canvas LTI private key setting.';
